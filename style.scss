@@ -16,6 +16,13 @@ $breakpoints: (
   }
 }
 
+@mixin hover() {
+  cursor: pointer;
+  &:hover {
+    opacity: .5;
+  }
+}
+
 .header__wrapper {
   background-image: url('./images/main.png');
   background-size: cover;
@@ -29,6 +36,7 @@ $breakpoints: (
       display: flex;
       .header__logo {
         height: 60px;
+        @include hover();
       }
       .header__nav {
         align-items: center;
@@ -37,6 +45,7 @@ $breakpoints: (
         li {
           margin: 0 30px;
           font-size: 18px;
+          @include hover()
         }
       }
       .header__nav-hamburger {
@@ -93,6 +102,7 @@ $breakpoints: (
         border-bottom: 1px solid #000;
         display: flex;
         align-items: center;
+        @include hover();
         .news__container-date {
           margin-right: 20px;
         }
@@ -174,6 +184,7 @@ $breakpoints: (
             text-align: center;
             margin: 12px auto;
             padding-bottom: 12px;
+            @include hover()
           }
         }
       }
@@ -188,6 +199,7 @@ $breakpoints: (
         border: 1px solid #000;
         padding: 10px;
         text-align: center;
+        @include hover();
       }
     }
   }
@@ -222,8 +234,9 @@ $breakpoints: (
   @include mq('pc') {
     display: flex;
     img {
+      @include hover();
       width: calc(100vw / 3);
-      height: 330px;
+      height: 400px;
     }
   }
   @include mq('sp') {
@@ -252,12 +265,14 @@ footer {
         align-items: center;
         margin: 0 0 0 auto;
         li {
+          @include hover();
           font-size: 18px;
           color: #fff;
           margin: 0 30px;
         }
       }
       img {
+        @include hover();
         width: 100px;
         height: 42px;
       }
