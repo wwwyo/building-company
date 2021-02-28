@@ -1,0 +1,298 @@
+// 全てに適応
+* {
+  font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "Yu Mincho Light", YuMincho, "Yu Mincho", 游明朝体, sans-serif;;
+  color: #000;
+}
+
+
+// メディアクエリ
+$breakpoints: (
+  'pc': 'screen and (max-width: 1600px)',
+  'sp': 'screen and (max-width: 960px)',
+);
+@mixin mq($bp) {
+  @media #{map-get($breakpoints, $bp)} {
+    @content;
+  }
+}
+
+.header__wrapper {
+  background-image: url('./images/main.png');
+  background-size: cover;
+  background-position: center;
+  @include mq('pc') {
+    height: 80vh;
+    header {
+      width: 95%;
+      margin: 0 auto;
+      padding-top: 40px;
+      display: flex;
+      .header__logo {
+        height: 60px;
+      }
+      .header__nav {
+        align-items: center;
+        display: flex;
+        margin: 0 0 0 auto;
+        li {
+          margin: 0 30px;
+          font-size: 18px;
+        }
+      }
+      .header__nav-hamburger {
+        display: none;
+      }
+    }
+    .header__sales-copy {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-size: 48px;
+      height: calc(80vh - 100px);
+    }
+  }
+
+  @include mq('sp') {
+    height: 50vh;
+    header {
+      padding: 20px;
+      display: flex;
+      .header__logo {
+        height: 40px;
+      }
+      .header__nav {
+        display: none;
+      }
+      .header__nav-hamburger {
+        display: inline-block;
+        margin: auto 0 auto auto;
+      }
+    }
+    .header__sales-copy {
+      font-size: 24px;
+      height: calc(50vh - 40px);
+    }
+  }
+}
+
+.news__wrapper {
+  @include mq('pc') {
+    height: 600px;
+    padding: 90px ;
+    .news__title {
+      font-size: 38px;
+      height: 110px;
+      text-align: center;
+    }
+    .news__container {
+      width: 80%;
+      font-size: 18px;
+      margin: 0 auto;
+      li {
+        height: 100px;
+        border-bottom: 1px solid #000;
+        display: flex;
+        align-items: center;
+        .news__container-date {
+          margin-right: 20px;
+        }
+        .news__container-title {
+          border: 1px solid #000;
+          padding: 5px;
+          font-size: 11px;
+          height: 23px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  @include mq('sp') {
+    height: 500px;
+    padding: 44px 0;
+    .news__title {
+      font-size: 24px;
+      height: 2rem;
+      text-align: center;
+    }
+    .news__container {
+      font-size: 13px;
+      width: 95%;
+      li {
+        height: 80px;
+        display: block;
+        margin-top: 30px;
+        .news__container-title {
+          font-size: 11px;
+        }
+        .news__container-body {
+          font-size: 18px;
+          margin-top: 13px;
+        }
+      }
+    }
+  }
+}
+
+.performance__wrapper {
+  @include mq('pc') {
+    height: 800px;
+    .performance__title {
+      font-size: 38px;
+      height: 46px;
+      text-align: center;
+    }
+    .performance__container {
+      display: flex;
+      justify-content: space-around;
+      margin: 80px 30px auto;
+      li {
+        img {
+          height: 274px;
+          width: 400px;
+        }
+        .performance__container-item {
+          height: 124px;
+          .performance__container-item--title {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 24px;
+          }
+          .performance__container-item--prefecture {
+            width: 80%;
+            border-bottom: 1px solid #000;
+            font-size: 14px;
+            text-align: center;
+            margin: 12px auto;
+            padding-bottom: 12px;
+          }
+          .performance__container-item--show {
+            width: 80%;
+            border-bottom: 1px solid #000;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            margin: 12px auto;
+            padding-bottom: 12px;
+          }
+        }
+      }
+    }
+    p {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      .performance__index-link {
+        font-size: 20px;
+        width: 200px;
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+  }
+  
+  @include mq('sp') {
+    height: 100%;
+    .performance__title {
+      font-size: 24px;
+    }
+    .performance__container {
+      margin-top: 20px;
+      display: block;
+      li {
+        width: 80vw;
+        margin: 0 auto;
+        img {
+          width: 100%;
+          height: 50vw;
+          text-align: center;
+        }
+        .performance__container-item {
+          width: 400px;
+          margin: 0 auto;
+          margin-bottom: 34px;
+        }
+      }
+    }
+  }
+}
+
+.links__wrapper {
+  @include mq('pc') {
+    display: flex;
+    img {
+      width: calc(100vw / 3);
+      height: 330px;
+    }
+  }
+  @include mq('sp') {
+    display: block;
+    margin-top: 130px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+footer {
+  background: #000;
+  @include mq('pc') {
+    height: 154px;
+    padding-top: 24px;
+    padding-bottom: 10px;
+    .footer-menu {
+      width: 95%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row-reverse;
+      .footer_nav {
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 auto;
+        li {
+          font-size: 18px;
+          color: #fff;
+          margin: 0 30px;
+        }
+      }
+      img {
+        width: 100px;
+        height: 42px;
+      }
+    }
+    p {
+      margin-top: 66px;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+  
+  @include mq('sp') {
+    height: 100%;
+    .footer-menu {
+      display: block;
+      padding: 0 auto;
+      .footer_nav {
+        display: block;
+        text-align: center;
+        li {
+          margin: 30px;
+        }
+      }
+      img {
+        display: block;
+        width: 100px;
+        margin: 75px auto 0;
+      }
+    }
+    p {
+      margin-top: 33px;
+    }
+  }
+  
+}
+
+
